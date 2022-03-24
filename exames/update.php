@@ -1,21 +1,19 @@
 <?php
-$exameData = filter_input(INPUT_POST, FILTER_DEFAULT);
+$exameData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 $exameid = filter_input(INPUT_GET, 'exameid', FILTER_VALIDATE_INT);
 
-new Exames;
-$exameAtual = new Exames;
-$exameAtual = $exameAtual->retornaByIdExame($exameid);
-$nome = $exameAtual['nome_e'];
-$codigo = $exameAtual['codigo_e'];
-$tipo = $exameAtual['tipo_e'];
-
-if (isset($exameData['atualizaExame'])) {
-  echo 'funcioona';
+if (isset($exameData['sendForm'])) {
+  unset($exameData['sendForm']);
+  $upDados = $exames->updateExame($exameid, $exameData);
+  echo "
+      <div class=\"notification is-success\">
+        O Exame foi <strong>Atualizado</strong>
+      </div>
+  ";
 }
-
-
-
+$retornaDados = $exames->exameById($exameid);
 ?>
+
 <section class="hero is-hero-bar">
   <div class="hero-body">
     <div class="level">
@@ -49,7 +47,7 @@ if (isset($exameData['atualizaExame'])) {
           <div class="field-body">
             <div class="field">
               <div class="control is-expanded has-icons-left">
-                <input class="input" type="text" name="nome_e" placeholder="Digite o nome do exame" value="<?= $nome; ?>">
+                <input class="input" type="text" name="nome_e" placeholder="Digite o nome do exame" value="<?= $retornaDados->nome_e; ?>">
                 <span class="icon is-small is-left"><i class="mdi mdi-mail"></i></span>
               </div>
               <p class="help is-danger">
@@ -58,7 +56,7 @@ if (isset($exameData['atualizaExame'])) {
             </div>
             <div class="field">
               <p class="control is-expanded has-icons-left has-icons-right">
-                <input class="input" type="text" name="codigo_e" placeholder="Digite o código para o exame" value="<?= $codigo; ?>">
+                <input class="input" type="text" name="codigo_e" placeholder="Digite o código para o exame" value="<?= $retornaDados->codigo_e; ?>">
                 <span class="icon is-small is-left"><i class="mdi mdi-mail"></i></span>
                 <!-- <span class="icon is-small is-right"><i class="mdi mdi-check"></i></span> -->
               </p>
@@ -75,8 +73,8 @@ if (isset($exameData['atualizaExame'])) {
                 <div class="select is-fullwidth">
                   <select name="tipo_e">
                     <option value="" disabled selected>Selecione a categoria</option>
-                    <option value="com_contraste">Com constraste</option>
-                    <option value="sem_constraste">Sem Constraste</option>
+                    <option value="sem_contraste" <?= $retornaDados->tipo_e == 'sem_contraste' ? 'selected' : ''; ?>>Sem Constraste</option>
+                    <option value="com_contraste" <?= $retornaDados->tipo_e == 'com_contraste' ? 'selected' : ''; ?>>Com Constraste</option>
                   </select>
                 </div>
               </div>
@@ -92,9 +90,10 @@ if (isset($exameData['atualizaExame'])) {
             <div class="field">
               <div class="field is-grouped">
                 <div class="control">
-                  <button type="submit" name="atualizaExame" class="button is-primary">
+                  <button type="submit" name="sendForm" class="button is-primary">
                     <span>Salvar</span>
                   </button>
+                  <!--                    <input type="submit" name="atualizaExame" class="button is-primary" value="Salvar">-->
                 </div>
 
               </div>
