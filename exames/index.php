@@ -34,7 +34,7 @@
                 <tr>
                   <th class="is-checkbox-cell">
                     <label class="b-checkbox checkbox">
-                      <!-- <input type="checkbox" value="false"> -->
+
                       <span class="check">#</span>
                     </label>
                   </th>
@@ -42,8 +42,7 @@
                   <th>Nome</th>
                   <th>Código</th>
                   <th>Tipo</th>
-                  <!-- <th>Progress</th>
-                  <th>Created</th> -->
+
                   <th></th>
                 </tr>
               </thead>
@@ -73,10 +72,6 @@
                         <a href="dashboard.php?pagina=exames/update&create=true&exameid=<?= $ex['id_e']; ?>" class="button">
                           <span class="icon"><i class="mdi mdi-eye"></i></span>
                         </a>
-                        <!-- <button class="button is-small is-primary" type="button">
-                          <a href="dashboard.php?pagina=exames/edit.php?uid=<?= $ex['id_e']; ?>"></a>
-                          <span class="icon"><i class="mdi mdi-eye"></i></span>
-                        </button> -->
                         <button class="button is-small is-danger jb-modal" data-target="sample-modal" type="button">
                           <span class="icon"><i class="mdi mdi-trash-can"></i></span>
                         </button>

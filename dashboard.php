@@ -4,7 +4,6 @@ include __DIR__ . "/inc/header.php";
 
 $exames = new Exames;
 $pacientes = new Pacientes;
-$methods = new Methods;
 
 if (!isset($_GET['pagina']) || $_GET['pagina'] == '') {
   include_once "inc/home.php";

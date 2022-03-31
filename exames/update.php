@@ -58,7 +58,7 @@ $retornaDados = $exames->exameById($exameid);
               <p class="control is-expanded has-icons-left has-icons-right">
                 <input class="input" type="text" name="codigo_e" placeholder="Digite o código para o exame" value="<?= $retornaDados->codigo_e; ?>">
                 <span class="icon is-small is-left"><i class="mdi mdi-mail"></i></span>
-                <!-- <span class="icon is-small is-right"><i class="mdi mdi-check"></i></span> -->
+
               </p>
             </div>
           </div>
@@ -84,7 +84,7 @@ $retornaDados = $exames->exameById($exameid);
         <hr>
         <div class="field is-horizontal">
           <div class="field-label">
-            <!-- Left empty for spacing -->
+
           </div>
           <div class="field-body">
             <div class="field">
@@ -93,7 +93,7 @@ $retornaDados = $exames->exameById($exameid);
                   <button type="submit" name="sendForm" class="button is-primary">
                     <span>Salvar</span>
                   </button>
-                  <!--                    <input type="submit" name="atualizaExame" class="button is-primary" value="Salvar">-->
+
                 </div>
 
               </div>
