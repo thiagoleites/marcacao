@@ -63,10 +63,6 @@ class Exames extends Conn
         $sql = $this->conn->prepare($sql);
         $sql->execute();
         return $sql->fetch();
-
-//        while($result = $sql->fetchAll()){
-//            return $result;
-//        }
     }
 
     public function atualizaExame($id, $data)
