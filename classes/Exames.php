@@ -81,11 +81,5 @@ class Exames extends Conn
         $stmt->bindValue(':codigo_p', $codigo);
         $stmt->bindValue(':id', $id);
         $result = $stmt->execute();
-
-        if ($result) {
-            echo "Dados atualizados";
-        } else {
-            echo "Erro ao atualizar dados";
-        }
     }
 }
