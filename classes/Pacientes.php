@@ -49,7 +49,7 @@ class Pacientes extends Conn
             $stmt->execute();
             return $stmt->fetch(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            echo $this->error = "Cadastro nao existe";
+            echo "Erro: " . $e->getMessage();
         }
     }
 }
