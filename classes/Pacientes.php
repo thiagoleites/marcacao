@@ -1,86 +1,55 @@
 <?php
 
-/**
- * Description of Pacientes
- *
- * @author thiago
- */
-class Pacientes  {
-    private $id, $nome, $end, $nasc, $cpf, $sus, $cell, $acs, $ubs;
-    
-    
-    public function getId() {
-        return $this->id;
+class Pacientes extends Conn
+{
+    private $id;
+    private $data;
+    private $error;
+
+    private $conn;
+
+    public function getData()
+    {
+        return $this->data;
     }
 
-    public function getNome() {
-        return $this->nome;
+    public function getError()
+    {
+        return $this->error;
     }
 
-    public function getEnd() {
-        return $this->end;
+    /**
+     * Faz uma consulta no banco e retorna todos os registros na tabela pacientes.
+     * @return mixed
+     */
+    public function allPacientes()
+    {
+        $this->conn = parent::getConn();
+        try {
+            $sql = "SELECT * FROM pacientes";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo "Erro: " . $e->getMessage();
+            die();
+        }
     }
 
-    public function getNasc() {
-        return $this->nasc;
+    /**
+     * Retorna o cadastro relacionado ao ID.
+     * @return $id
+     */
+    public function PacienteId($id)
+    {
+        $this->conn = parent::getConn();
+        try {
+            $sql = "SELECT * FROM pacientes WHERE id_p = $id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            echo $this->error = "Cadastro nao existe";
+        }
     }
-
-    public function getCpf() {
-        return $this->cpf;
-    }
-
-    public function getSus() {
-        return $this->sus;
-    }
-
-    public function getCell() {
-        return $this->cell;
-    }
-
-    public function getAcs() {
-        return $this->acs;
-    }
-
-    public function getUbs() {
-        return $this->ubs;
-    }
-
-    public function setId($id): void {
-        $this->id = $id;
-    }
-
-    public function setNome($nome): void {
-        $this->nome = $nome;
-    }
-
-    public function setEnd($end): void {
-        $this->end = $end;
-    }
-
-    public function setNasc($nasc): void {
-        $this->nasc = $nasc;
-    }
-
-    public function setCpf($cpf): void {
-        $this->cpf = $cpf;
-    }
-
-    public function setSus($sus): void {
-        $this->sus = $sus;
-    }
-
-    public function setCell($cell): void {
-        $this->cell = $cell;
-    }
-
-    public function setAcs($acs): void {
-        $this->acs = $acs;
-    }
-
-    public function setUbs($ubs): void {
-        $this->ubs = $ubs;
-    }
-
-
-    
 }
