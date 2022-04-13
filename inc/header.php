@@ -39,7 +39,7 @@
           <div class="navbar-item has-dropdown has-dropdown-with-icons has-divider has-user-avatar is-hoverable">
             <a class="navbar-link is-arrowless">
               <div class="is-user-avatar">
-                <img src="https://avatars.dicebear.com/v2/initials/john-doe.svg" alt="John Doe">
+                <img src="https://avatars.dicebear.com/v2/initials/TL.svg" alt="John Doe">
               </div>
               <div class="is-user-name"><span>Thiago Leite</span></div>
               <span class="icon"><i class="mdi mdi-chevron-down"></i></span>
@@ -89,24 +89,6 @@
         </ul>
         <p class="menu-label">Menu</p>
         <ul class="menu-list">
-          <li>
-            <a href="dashboard.php?pagina=tabelas/index" class="has-icon">
-              <span class="icon has-update-mark"><i class="mdi mdi-table"></i></span>
-              <span class="menu-item-label">Tabelas</span>
-            </a>
-          </li>
-          <li>
-            <a href="dashboard.php?pagina=formularios/index" class="has-icon">
-              <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-              <span class="menu-item-label">Formularios</span>
-            </a>
-          </li>
-          <li>
-            <a href="dashboard.php?pagina=perfil/index" class="has-icon">
-              <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-              <span class="menu-item-label">Perfil</span>
-            </a>
-          </li>
           <li>
             <a class="has-icon has-dropdown-icon">
               <span class="icon"><i class="mdi mdi-view-list"></i></span>
@@ -186,19 +168,3 @@
         </div>
       </div>
     </section>
-    <!-- <section class="hero is-hero-bar">
-      <div class="hero-body">
-        <div class="level">
-          <div class="level-left">
-            <div class="level-item">
-              <h1 class="title">
-                Dashboard
-              </h1>
-            </div>
-          </div>
-          <div class="level-right" style="display: none;">
-            <div class="level-item"></div>
-          </div>
-        </div>
-      </div>
-    </section> -->
