@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Gerencimento de exames.
- *
- * @author thiago
- * 
- */
-
 class Exames extends Conn
 {
 
@@ -31,20 +24,10 @@ class Exames extends Conn
         return $this->codigo;
     }
 
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setNome($nome): void
-    {
-        $this->nome = $nome;
-    }
-
-    public function setCodigo($codigo): void
-    {
-        $this->codigo = $codigo;
-    }
+    /**
+     * Função retorna todos os exames cadastrados no banco de dados.
+     * @var String
+     */
 
     public function retornaExame()
     {
@@ -55,6 +38,11 @@ class Exames extends Conn
         $sql->execute();
         return $sql;
     }
+
+    /**
+     * Função retorna um único cadastro selecionado no banco de dados.
+     * @var bool
+     */
     public function retornaByIdExame($id)
     {
         $this->conn = parent::getConn();
@@ -65,18 +53,19 @@ class Exames extends Conn
         return $sql->fetch();
     }
 
+    /**
+     * Função atualiza o cadastro selecionado no banco de dados.
+     * @var mixed
+     */
     public function atualizaExame($id, $data)
     {
-
         $nome = $data['nome_e'];
         $codigo = $data['codigo_e'];
-
         $sql = "UPDATE exames SET
         nome_p = $nome,
         codigo_p = $codigo
         WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
-
         $stmt->bindValue(':nome_p', $nome);
         $stmt->bindValue(':codigo_p', $codigo);
         $stmt->bindValue(':id', $id);
