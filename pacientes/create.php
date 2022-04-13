@@ -78,27 +78,8 @@
             </div>
           </div>
         </div>
-
-
-        <hr>
-
-
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label class="label">Endereço</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <div class="control">
-                <textarea class="textarea" placeholder="Digite seu endereço"></textarea>
-              </div>
-            </div>
-          </div>
-        </div>
         <hr>
         <div class="field is-horizontal">
-          <div class="field-label">
-          </div>
           <div class="field-body">
             <div class="field">
               <div class="field is-grouped">
